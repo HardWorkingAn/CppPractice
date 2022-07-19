@@ -48,7 +48,7 @@ double read_and_sum(int s) {
 //}
 */
 //사용자 정의 타입 클래스
-/*
+
 class Vector {
 public:
     //Vector 생성 vector_init 역할 Vector a(s) 형식으로 바로 선언가능
@@ -66,14 +66,15 @@ double read_and_sum(int s) {
 
     for (int i = 0; i != v.size(); ++i) {
         cin >> v[i];
-        double sum = 0;
-        for (int i = 0; i != v.size(); ++i) {
-            sum += v[i];
-        }
-        return sum;
     }
+    double sum = 0;
+    for (int i = 0; i != v.size(); ++i) {
+        sum += v[i];
+    }
+    return sum;
 }
-*/
+
+
 int main()
 {
 
@@ -177,6 +178,7 @@ int main()
     */
     
     
-
+    int sum = read_and_sum(3);
+    cout << sum << endl;
     
 }
