@@ -1,6 +1,7 @@
 ﻿#include <iostream>
 #include <complex>
 #include <vector>
+#include "Vector.h"
 
 // using namespace std; 를 사용하면 std::cout 에서 std 를 안써도 된다.
 using namespace std;
@@ -48,7 +49,7 @@ double read_and_sum(int s) {
 //}
 */
 //사용자 정의 타입 클래스
-
+/*
 class Vector {
 public:
     //Vector 생성 vector_init 역할 Vector a(s) 형식으로 바로 선언가능
@@ -73,7 +74,22 @@ double read_and_sum(int s) {
     }
     return sum;
 }
+*/
 
+enum Traffic_light {
+    green,
+    yellow,
+    red
+};
+
+Traffic_light& operator++(Traffic_light& t)
+{
+    switch (t) {
+    case Traffic_light::green: return t = Traffic_light::yellow;
+    case Traffic_light::yellow: return t = Traffic_light::red;
+    case Traffic_light::red: return t = Traffic_light::green;
+    };
+};
 
 int main()
 {
@@ -175,10 +191,25 @@ int main()
     double a = read_and_sum(5);
     cout << a;
     char* p;
-    */
-    
-    
+    //클래스 사용자 정의 타입
     int sum = read_and_sum(3);
     cout << sum << endl;
+    */
+
+    //열거형 열거형은 소규모 집합의 정수값을 나타내는데 사용
+    /*
+    enum class Color {red, blue, green}; // red는 0 blue는 1 green는 2를 표시 하지만 정수(int)가 아니다.
+    //enum class Traffic_light {green, yellow, red}; // green = 0 yellow = 1 red = 2을 표시 
+    Color x = Color::red;
+    //Color y = Traffic_light::red; y는 Color 타입을 나타내기 떄문에 Traffic_light의 red를 가져올 수 없다.
+    printf("%d", x);
+    
+
+    // Traffic_light 는 전역변수 정의(정의이동 해서 볼것)
+    Traffic_light light = Traffic_light::red;
+    Traffic_light next = ++light;
+    printf("%d", next); 
+    */
+
     
 }
